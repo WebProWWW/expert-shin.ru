@@ -95,7 +95,7 @@ try {
     $mail->isHTML(true);
     $mail->Subject = 'Заявка';
     $mail->Body = renderContent();
-    $mail->send();
+    // $mail->send();
     $result['status'] = 'Message has been sent';
 } catch (Exception $e) {
     $result['status'] = 'Error: '.$mail->ErrorInfo;

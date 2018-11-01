@@ -792,7 +792,7 @@ $this->title = 'Главная';
   <div class="container">
     <div class="wall-shadow corner-tr-blue w-lg-80 mx-auto">
       <h3 class="title text-center" >Экономь время и деньги.<br>Оставь заявку сейчас и получи скидку на диагностику 5%.</h3>
-      <form class="js-form">
+      <form class="js-form" event-name="discount">
         <input type="hidden" name="type" value="Получить скидку на диагностику 5%">
         <div class="row">
           <div class="col-12 col-md-4">

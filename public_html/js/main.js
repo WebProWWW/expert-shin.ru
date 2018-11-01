@@ -1148,6 +1148,9 @@
       $form.trigger('reset');
       $.fancybox.close(true);
       $.fancybox.open($('#js-form-success'));
+      if (typeof window.formSendSuccess === "function") {
+        window.formSendSuccess($form);
+      }
       return true;
     },
     error: function($form) {

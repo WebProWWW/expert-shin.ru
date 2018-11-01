@@ -724,6 +724,7 @@ jsFormOpt =
     $form.trigger 'reset'
     $.fancybox.close(on)
     $.fancybox.open $ '#js-form-success'
+    window.formSendSuccess? $form
     on
   error: ($form) ->
     $.fancybox.close(on)

@@ -30,6 +30,57 @@
 </head>
 <body>
 
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" > 
+(function (d, w, c) { 
+(w[c] = w[c] || []).push(function() { 
+try { 
+w.yaCounter50940317 = new Ya.Metrika2({ 
+id:50940317, 
+clickmap:true, 
+trackLinks:true, 
+accurateTrackBounce:true, 
+webvisor:true 
+}); 
+} catch(e) { } 
+}); 
+
+var n = d.getElementsByTagName("script")[0], 
+s = d.createElement("script"), 
+f = function () { n.parentNode.insertBefore(s, n); }; 
+s.type = "text/javascript"; 
+s.async = true; 
+s.src = "https://mc.yandex.ru/metrika/tag.js"; 
+
+if (w.opera == "[object Opera]") { 
+d.addEventListener("DOMContentLoaded", f, false); 
+} else { f(); } 
+})(document, window, "yandex_metrika_callbacks2"); 
+</script> 
+<noscript><div><img src="https://mc.yandex.ru/watch/50940317" style="position:absolute; left:-9999px;" alt="" /></div></noscript> 
+<!-- / Yandex.Metrika counter -->
+
+<!-- VK Retargeting -->
+<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init("VK-RTRG-300151-ezlL5"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><noscript><img src="https://vk.com/rtrg?p=VK-RTRG-300151-ezlL5" style="position:fixed; left:-999px;" alt=""/></noscript>
+<!-- / VK Retargeting -->
+
+
+<script>
+  window.counterEvent = function(eventName) {
+    if (yaCounter50940317 != null && typeof yaCounter50940317.reachGoal === 'function') {
+      yaCounter50940317.reachGoal(eventName);
+    }
+    return true;
+  };
+  window.formSendSuccess = function($form) {
+    var eventName = $form.attr('event-name');
+    if (eventName != null) {
+      window.counterEvent(eventName);
+    }
+    return true;
+  };
+</script>
+
 <header class="header">
   <div class="container">
     <div class="row align-items-center justify-content-between">
@@ -39,7 +90,7 @@
         </a>
       </div><!--/.col-->
       <div class="col-auto ml-auto order-md-3 text-right">
-        <a class="phone-ln" href="tel:+74955072133"><i class="i-21"></i> +7 495 507-21-33</a>
+        <a class="phone-ln" onclick="window.counterEvent('phone');" href="tel:+74955072133"><i class="i-21"></i> +7 495 507-21-33</a>
         <p class="text d-none d-lg-block js-onscrl hide-lg-scrl">Работаем ежедневно с 9:00 до 23:00</p>
       </div><!--/.col-->
       <div class="col-auto d-md-none">
@@ -122,7 +173,7 @@
 <!-- ОФОРМИТЬ ЗАКАЗ (калькулятор) -->
 <div class="modal-sm" id="order-modal">
   <p class="text text-center em-12 fwgt-600">Оформить заказ</p>
-  <form class="js-form">
+  <form class="js-form" event-name="order">
     <input type="hidden" name="type" value="Оформить заказ">
     <input class="input" type="text" name="name" placeholder="Имя" validate="text">
     <input class="input js-mask" mask="+7-999-999-99-99" type="text" name="phone" placeholder="Телефон" validate="text">
@@ -142,7 +193,7 @@
 <!-- ОСТАВИТЬ ЗАЯВКУ -->
 <div class="modal-sm" id="callback-modal">
   <p class="text text-center em-12 fwgt-600">Оставить заявку</p>
-  <form class="js-form">
+  <form class="js-form" event-name="request">
     <input type="hidden" name="type" value="Обратный звонок">
     <input class="input" type="text" name="name" placeholder="Имя" validate="text">
     <input class="input js-mask" mask="+7-999-999-99-99" type="text" name="phone" placeholder="Телефон" validate="text">
@@ -318,7 +369,7 @@
 <script src="assets/fancybox/dist/jquery.fancybox.min.js"></script>
 <script src="assets/modernizr/modernizr-mq.js"></script>
 <!-- script -->
-<script src="js/main.js?v=007"></script>
+<script src="js/main.js?v=008"></script>
 
 </body>
 </html>
