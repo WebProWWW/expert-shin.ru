@@ -1,0 +1,478 @@
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+colorRed = red
+colorBlue = #2f6ef6
+colorDBlue = darken(colorBlue, 30%)
+colorGray = #919191
+colorLGray = lighten(colorGray, 70%)
+atime = 160
+shad = 0 3px 10px 0 alpha(black, 20%)
+shadDarken = 0 3px 10px 0 alpha(black, 40%)
+
+
+getIcon(cont)
+  font-family 'icomoon' !important
+  speak none
+  font-style normal
+  font-weight normal
+  font-variant normal
+  text-transform none
+  line-height 1
+  content cont
+  -webkit-font-smoothing antialiased
+  -moz-osx-font-smoothing grayscale
+
+
+body
+  font-size 14px
+  font-family 'Open Sans', sans-serif
+  font-weight 400
+  -webkit-font-smoothing antialiased
+  -moz-osx-font-smoothing grayscale
+
+
+a
+  resetLn(colorBlue, colorDBlue)
+  transAll(atime)
+
+
+.collapse
+  display none
+
+
+.header, .section, .footer
+  mpd(0, 15px 0 1px)
+  position relative
+  overflow hidden
+
+
+
+.section
+  padding 30px 0 15px
+
+
+
+.header
+  position fixed
+  top 0px
+  left 0px
+  right 0px
+  z-index 10
+  background white
+  box-shadow shadDarken
+  &-offset
+    padding-top 50px
+
+
+
+.footer
+  background-color colorBlue
+  color white
+
+
+.title
+  mpd(0 0 25px)
+  font-weight 700
+  font-size 1.3em
+  line-height 1
+
+
+
+
+.text
+  mpd(0 0 15px)
+  font-weight 400
+  font-size 1em
+  line-height 1.1
+
+
+
+
+.btn
+  mpd(0 0 15px, 13px 0)
+  box-sizing border-box
+  width 100%
+  border-radius 5px
+  line-height 1
+  font-size 1em
+  font-weight 400
+  text-align center
+  cursor pointer
+  border none
+  text-decoration none
+  outline none
+  appearance none
+  user-select none
+  text-shadow none
+  transAll(atime)
+  &-blue
+    resetLn(white, white)
+    background colorBlue
+    &:hover
+      background darken(colorBlue, 13%)
+    &:active
+      background colorBlue
+
+
+
+.divider
+  mpd(0 0 15px)
+  background colorLGray
+  height 1px
+
+
+
+
+.logo
+  &-ln
+    resetLn(black, colorBlue)
+  &-img
+    mpd(0 0 15px)
+    max-width 100%
+    height auto
+  &-header
+    width 60px
+
+
+
+
+.nav
+  mpd(0 -15px, 15px 0 0)
+  border-top 1px solid lighten(colorGray, 50%)
+  &-toggler
+    mpd(0 0 15px)
+    resetLn(black, black)
+  &-ln
+    mpd(0 0 15px, 0 15px)
+    resetLn(black, colorBlue)
+    text-align center
+    font-weight 600
+
+
+
+
+.phone
+  &-ln
+    mpd(0 0 15px)
+    resetLn(black, colorBlue)
+    font-weight 600
+
+
+
+
+.slide
+  mpd()
+  position relative
+  height 250px
+  &-desc
+    mpd(0, 15px 0 1px, flex)
+    align-items center
+    position absolute
+    top 0px
+    left 0px
+    width 100%
+    height 100%
+    background-size cover
+    background-repeat no-repeat
+    background-position 50% 50%
+    text-shadow 0 0 13px black
+  &-img
+    display none !important
+  &-wrapper
+    box-shadow none
+    border none
+    margin-bottom 45px
+    .bx-pager.bx-default-pager a
+      &, &:focus
+        background transparent
+        border 1px solid colorBlue
+      &.active, &:hover
+        background colorBlue
+
+
+.gslide
+  &-img
+    mpd()
+    width 100%
+    height auto
+    border-radius 10px
+    overflow hidden
+  &-thwrap
+    mpd(0 -7px 15px, 0, flex)
+    justify-content between
+    &-col
+      mpd(0, 0 7px)
+      position relative
+      width 100%
+      min-height 1px
+      flex-basis 0
+      flex-grow 1
+      max-width 100%
+  &-thimg
+    mpd()
+    width 100%
+    height auto
+    border-radius 10px
+    overflow hidden
+    cursor pointer
+    user-select none
+  &-wrapper
+    mpd(0 0 15px)
+    box-shadow none
+    border none
+
+
+
+.label
+  mpd(0 0 5px)
+  font-weight 600
+  font-size 1em
+
+.input
+  mpd(0 0 15px, 0 15px)
+  border 1px solid colorLGray
+  border-radius 5px
+  box-sizing border-box
+  width 100%
+  height 40px
+  background white
+  font-size 1em
+  outline none
+  appearance none
+  transAll(atime)
+  &::placeholder
+    color colorGray
+  &-h
+    height 40px
+  &:focus
+    border 1px solid colorBlue
+
+select.input
+  &:focus
+    border 1px solid colorLGray
+
+textarea.input
+  padding 15px
+  height auto
+
+.input.error
+  border 1px solid colorRed
+
+button.input-h
+  padding-top 0
+  padding-bottom 0
+
+.checkbox
+  mpd(0 0 15px, 0, flex)
+  user-select none
+  cursor pointer
+  &-box
+    mpd(0 10px 0 0)
+    box-sizing border-box
+    width 15px
+    height 15px
+    border 1px solid colorLGray
+    flex 0 0 15px
+    &:before
+      getIcon('\e91f')
+      mpd(-2px 0 0 1px)
+      font-size 16px
+      line-height 1
+      transform scale(0)
+      opacity 0
+      transAll(atime)
+  &-input
+    display none !important
+    &:checked + .checkbox-box:before
+      opacity 1
+      transform scale(1)
+  &-label
+    mpd()
+    font-size 1em
+
+
+
+.form-sm
+  .input, .input-h
+    height 34px
+
+
+
+
+.calc
+  &-btn
+    mpd(0, 8px 8px 0, flex)
+    align-items center
+    box-sizing border-box
+    resetLn(black, black)
+    position relative
+    height 100%
+    box-shadow shad
+    border 1px solid white
+    border-radius 5px
+    overflow hidden
+    &:hover
+      box-shadow shadDarken
+      .calc-btn-i
+        color colorBlue
+    &.active
+      border 1px solid colorBlue
+      box-shadow none
+      .calc-btn-i
+        color colorBlue
+    &-i
+      mpd(0 10px 10px 0)
+      color colorGray
+      font-size 2.3em
+      transAll(atime)
+    &-txt
+      mpd(0 0 10px)
+      color black
+      font-size 1em
+      font-weight 400
+  &-itotal //&-lbtn
+    mpd(0 0 15px, 15px 15px 1px)
+    background white
+    border 1px solid colorLGray
+    border-radius 5px
+    overflow hidden
+    user-select none
+  // &-lbtn
+  //   mpd(0 0 15px, 15px 15px 1px)
+  //   box-shadow shad
+  //   border-radius 5px
+  //   overflow hidden
+  //   user-select none
+  //   cursor pointer
+  //   transAll(atime)
+  //   &:hover
+  //     box-shadow shadDarken
+  &-form-col
+    background url('../img/shark.png') 50% 100% no-repeat
+    background-size auto
+
+
+
+
+.img-a
+  mpd(0 auto 15px)
+  max-width 100%
+  height auto
+  border-radius 15px
+
+
+
+.order
+  margin 0
+  padding 15px 0 1px
+  position fixed
+  bottom 0px
+  left 0px
+  right 0px
+  background-color #fefdfd
+  box-shadow 0 0 10px 0 alpha(black, 40%)
+  z-index 20
+  &-close
+    mpd(0 0 5px, 0, inline-block)
+    resetLn(black, black)
+    user-select none
+    cursor pointer
+    &:hover
+      transform rotate(90deg)
+
+
+
+
+.wall
+  &-white, &-shadow
+    mpd(0 0 15px, 15px 15px 1px)
+    border-radius 10px
+    overflow hidden
+  &-white
+    border 1px solid colorLGray
+    background-color white
+  &-shadow
+    box-shadow shad
+    background-color white
+
+
+
+.map-wrapper
+  overflow hidden
+  border-radius 10px
+
+
+.corner-tr-blue
+  &:before
+    content ''
+    mpd(-15px -15px -25px 0)
+    border-right 50px solid colorBlue
+    border-bottom 50px solid transparent
+
+
+
+.modal
+  &-sm
+    padding 35px 25px 10px
+    width 100%
+    max-width 400px
+
+
+
+.spnwr
+  white-space nowrap
+
+
+
+
+.bi
+  padding-left 1.3em
+  &-list, &-check
+    &:before
+      mpd(0.1em 0 0 -1.3em)
+      float left
+      font-size 1em
+  &-list
+    &:before
+      getIcon('\e918')
+  &-check
+    &:before
+      getIcon('\e91f')
+
+
+.ln
+  &-white
+    resetLn(white, white)
+    &:hover
+      text-decoration underline
+
+
+.fwgt
+  &-300
+    font-weight 300
+  &-400
+    font-weight 400
+  &-600
+    font-weight 600
+  &-700
+    font-weight 700
+
+
+.white
+  color white
+
+.blue
+  color colorBlue
+
+.gray
+  color colorGray
+
+.red
+  color colorRed
+
+
+#yandex-map
+  height 430px
+
+.map
+  height 430px
