@@ -336,7 +336,7 @@ window.mapConfig = {
   }
 };
 </script>
-<script src="/js/main.js?v=009"></script>
+<script src="/js/main.js?v=010"></script>
 
 </body>
 </html>
