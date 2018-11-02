@@ -67,8 +67,10 @@ d.addEventListener("DOMContentLoaded", f, false);
 
 <script>
   window.counterEvent = function(eventName) {
+    eventName = String(eventName);
     if (yaCounter50940317 != null && typeof yaCounter50940317.reachGoal === 'function') {
       yaCounter50940317.reachGoal(eventName);
+      console.log('Сработала: yaCounter50940317.reachGoal(\''+eventName+'\')');
     }
     return true;
   };
@@ -131,7 +133,7 @@ d.addEventListener("DOMContentLoaded", f, false);
         </nav>
       </div><!--/.col-->
       <div class="col-12 col-md-auto">
-        <a class="phone-ln em-13 text-center" href="tel:+74955072133">+7 495 507-21-33</a>
+        <a class="phone-ln em-13 text-center" onclick="window.counterEvent('phone');" href="tel:+74955072133">+7 495 507-21-33</a>
       </div><!--/.col-->
     </div><!--/.row-->
   </div><!--/.container-->
@@ -217,7 +219,7 @@ d.addEventListener("DOMContentLoaded", f, false);
     Пожалуйста, попробуйте повторить.<br>
     Если вы хотите ускорить процесс, позвоните<br>
     по телефону прямо сейчас:<br><br>
-    <a class="phone-ln" href="tel:+74955072133"><i class="i-21"></i> +7 495 507-21-33</a>
+    <a class="phone-ln" onclick="window.counterEvent('phone');" href="tel:+74955072133"><i class="i-21"></i> +7 495 507-21-33</a>
     <span class="fwgt-700">Благодарим вас за обращение!</span>
   </p>
 </div>
@@ -309,18 +311,22 @@ d.addEventListener("DOMContentLoaded", f, false);
 <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU"></script>
 <script type="text/javascript">
 window.mapConfig = {
+  center: {
+    coor: [55.89014789787956,37.628656967117294],
+    zoom: 12
+  },
   address: [
     {
       mapCenterCoor: [55.8991919850342,37.604063105740096],
       iconCoor: [55.8991919850342,37.604063105740096],
       hintContent: 'Expert Shin',
-      balloonContent: 'Москва, ул. Лескова, 9г<br>Телефон<br><strong>+7 495 507-21-33</strong><br>Работаем ежедневно<br><strong>с 9:00 до 23:00</strong>'
+      balloonContent: 'Москва,<br>ул. Лескова, 9г<br>Телефон<br><strong>+7 495 507-21-33</strong><br>Работаем ежедневно<br><strong>с 9:00 до 23:00</strong>'
     },
     {
       mapCenterCoor: [55.87651641443169,37.66191767294684],
       iconCoor: [55.87651641443169,37.66191767294684],
       hintContent: 'Expert Shin',
-      balloonContent: 'Москва, ул. Олонецкий проезд, 14<br>Телефон<br><strong>+7 903 611-83-33</strong><br>Работаем ежедневно<br><strong>с 9:00 до 23:00</strong>'
+      balloonContent: 'Москва,<br>ул. Олонецкий проезд, 14<br>Телефон<br><strong>+7 903 611-83-33</strong><br>Работаем ежедневно<br><strong>с 9:00 до 23:00</strong>'
     }
   ],
   placemark: {
@@ -329,68 +335,6 @@ window.mapConfig = {
     iconOffset: [-16, -48]
   }
 };
-// {
-//   address: [
-
-//   ],
-//   iconUrl: '/img/map.svg?v=001',
-//   iconSize: [32, 48],
-//   iconOffset: [-16, -48]
-// };
-// (function($) {
-//   $(function() {
-//     var mapOptions = {
-//       /* ID блока див где будет отображаться карта */
-//       blockId: 'yandex-map',
-//       /* Координаты центра карты */
-//       mapCenterCoor: [55.8991919850342,37.604063105740096],
-//       /* Координаты иконки */
-//       iconCoor: [55.8991919850342,37.604063105740096],
-//       /* Приближение */
-//       mapZoom: 16,
-//       /* Надпись при навидении на иконку */
-//       hintContent: 'Expert Shin',
-//       /* Адрес, появляется после клика на иконку */
-//       balloonContent: 'Москва, ул. Лескова, 9г<br>Телефон<br><strong>+7 495 507-21-33</strong><br>Работаем ежедневно<br><strong>с 9:00 до 23:00</strong>',
-//       /* Путь к картинке (иконка) */
-//       iconUrl: '/img/map.svg?v=001',
-//       /* размер иконки (картинки) [ширина, высота] */
-//       iconSize: [32, 48],
-//       /* отступы по осям X и Y чтоб нижний кончик картинки
-//       совпадал на указанные координаты [X, Y] */
-//       iconOffset: [-16, -48],
-//        Элементы управления на карте [] значит никакого 
-//       // mapControls: []
-//     };
-//     function yandexMapInit() {
-//       var map = new ymaps.Map(mapOptions.blockId , {
-//         center: mapOptions.mapCenterCoor,
-//         zoom: mapOptions.mapZoom,
-//         controls: mapOptions.mapControls
-//       });
-//       var placemark = new ymaps.Placemark(mapOptions.iconCoor, {
-//         hintContent: mapOptions.hintContent,
-//         balloonContent: mapOptions.balloonContent
-//       }, {
-//         iconLayout: 'default#image',
-//         iconImageHref: mapOptions.iconUrl,
-//         iconImageSize: mapOptions.iconSize,
-//         iconImageOffset: mapOptions.iconOffset
-//       });
-//       map.geoObjects.add(placemark);
-//       map.behaviors.disable(['drag', 'scrollZoom']);
-
-//       $('.js-map-addr').on('click', function(e) {
-//         var index = $(this).attr('data-index');
-//       });
-//     }
-//     ymaps.ready(function() {
-//       if ($('#yandex-map').length) {
-//         yandexMapInit()
-//       }
-//     });
-//   });
-// })(jQuery);
 </script>
 <script src="/js/main.js?v=009"></script>
 

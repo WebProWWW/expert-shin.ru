@@ -1172,8 +1172,8 @@
       this.$addr = this.$view.find('.js-map-addr');
       mapView = this.$view.find('.js-map-view')[0];
       this.map = new ymaps.Map(mapView, {
-        center: this.config.address[0].mapCenterCoor,
-        zoom: 16
+        center: this.config.center.coor,
+        zoom: this.config.center.zoom
       });
       ref = this.config.address;
       for (j = 0, len = ref.length; j < len; j++) {

@@ -741,8 +741,8 @@ class YandexMap
     @$addr = @$view.find '.js-map-addr'
     mapView = @$view.find('.js-map-view')[0]
     @map = new ymaps.Map mapView,
-      center: @config.address[0].mapCenterCoor
-      zoom: 16
+      center: @config.center.coor
+      zoom: @config.center.zoom
       # controls: []
     @addAdres address, @config.placemark  for address in @config.address
     @$addr.on 'click', @setCenter
@@ -779,28 +779,6 @@ yandexMapInit = () ->
   $view = $ '.js-map'
   return off unless config? and $view.length
   $view.each (i, el) -> new YandexMap $(el), config
-
-  # map = new ymaps.Map(mapOptions.blockId , {
-  #   center: mapOptions.mapCenterCoor,
-  #   zoom: mapOptions.mapZoom,
-  #   controls: mapOptions.mapControls
-  # });
-  # var placemark = new ymaps.Placemark(mapOptions.iconCoor, {
-  #   hintContent: mapOptions.hintContent,
-  #   balloonContent: mapOptions.balloonContent
-  # }, {
-  #   iconLayout: 'default#image',
-  #   iconImageHref: mapOptions.iconUrl,
-  #   iconImageSize: mapOptions.iconSize,
-  #   iconImageOffset: mapOptions.iconOffset
-  # });
-  # map.geoObjects.add(placemark);
-  # map.behaviors.disable(['drag', 'scrollZoom']);
-
-  # $('.js-map-addr').on('click', function(e) {
-  #   var index = $(this).attr('data-index');
-  # });
-
 
 ymaps.ready? yandexMapInit if ymaps?
 
