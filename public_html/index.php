@@ -5,8 +5,10 @@ class Page
 
   private $title = '';
   private $viewParh;
+  private $baseUrl;
 
   function __construct() {
+    $this->baseUrl = $_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['HTTP_HOST'];
     $this->viewParh = dirname(__DIR__) . '/views';
   }
 

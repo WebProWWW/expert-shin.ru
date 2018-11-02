@@ -4,7 +4,7 @@
  */
 
 (function() {
-  var $, $body, $calcParent, $htmlBody, $input1, $input10, $input11, $input12, $input13, $input14, $input15, $input16, $input17, $input18, $input19, $input2, $input20, $input21, $input22, $input23, $input24, $input25, $input26, $input27, $input28, $input29, $input3, $input30, $input31, $input32, $input33, $input34, $input35, $input36, $input37, $input38, $input39, $input4, $input40, $input41, $input5, $input6, $input7, $input8, $input9, $onscrl, $orderFix, $orderFormInputs, $ordermIlist, $totalAll, $viewItem1, $viewItem10, $viewItem2, $viewItem3, $viewItem4, $viewItem5, $viewItem6, $viewItem7, $viewItem8, $viewItem9, $win, GalSlider, MediaQuery, addOneScrollToEvent, animatePriceTo, calcFormAnimating, calculate, calculateItem1, calculateItem10, calculateItem2, calculateItem3, calculateItem4, calculateItem5, calculateItem6, calculateItem7, calculateItem8, calculateItem9, delay, doStrFun, getOverStr, jQueryMailer, jsFormOpt, loaderImg, mq, numToPrice, orderIndex, renderItemGetTotal, scrollCallback, scrollTo, scrollToClick, scrollToId, showCalcItem, strToNum, toggleCollapse;
+  var $, $body, $calcParent, $htmlBody, $input1, $input10, $input11, $input12, $input13, $input14, $input15, $input16, $input17, $input18, $input19, $input2, $input20, $input21, $input22, $input23, $input24, $input25, $input26, $input27, $input28, $input29, $input3, $input30, $input31, $input32, $input33, $input34, $input35, $input36, $input37, $input38, $input39, $input4, $input40, $input41, $input5, $input6, $input7, $input8, $input9, $onscrl, $orderFix, $orderFormInputs, $ordermIlist, $totalAll, $viewItem1, $viewItem10, $viewItem2, $viewItem3, $viewItem4, $viewItem5, $viewItem6, $viewItem7, $viewItem8, $viewItem9, $win, GalSlider, MediaQuery, YandexMap, addOneScrollToEvent, animatePriceTo, calcFormAnimating, calculate, calculateItem1, calculateItem10, calculateItem2, calculateItem3, calculateItem4, calculateItem5, calculateItem6, calculateItem7, calculateItem8, calculateItem9, delay, doStrFun, getOverStr, jQueryMailer, jsFormOpt, loaderImg, mq, numToPrice, orderIndex, renderItemGetTotal, scrollCallback, scrollTo, scrollToClick, scrollToId, showCalcItem, strToNum, toggleCollapse, yandexMapInit;
 
   $ = jQuery;
 
@@ -1161,5 +1161,80 @@
   };
 
   new jQueryMailer('.js-form', jsFormOpt);
+
+  YandexMap = class YandexMap {
+    constructor($view1, config1) {
+      var address, j, len, mapView, ref;
+      this.setCenter = this.setCenter.bind(this);
+      this.$view = $view1;
+      this.config = config1;
+      this.$select = this.$view.find('.js-map-select');
+      this.$addr = this.$view.find('.js-map-addr');
+      mapView = this.$view.find('.js-map-view')[0];
+      this.map = new ymaps.Map(mapView, {
+        center: this.config.address[0].mapCenterCoor,
+        zoom: 16
+      });
+      ref = this.config.address;
+      for (j = 0, len = ref.length; j < len; j++) {
+        address = ref[j];
+        // controls: []
+        this.addAdres(address, this.config.placemark);
+      }
+      this.$addr.on('click', this.setCenter);
+    }
+
+    setCenter(e) {
+      var $closest, $this, addrIndex, coor;
+      e.preventDefault();
+      $this = $(e.currentTarget);
+      $closest = $this.closest('.js-map-select');
+      if ($closest.hasClass('active')) {
+        return false;
+      }
+      addrIndex = Number($this.attr('addr-index'));
+      coor = this.config.address[addrIndex].mapCenterCoor;
+      this.map.setCenter(coor, 16, {
+        duration: 600
+      });
+      this.$select.removeClass('active');
+      $closest.addClass('active');
+      return false;
+    }
+
+    addAdres({mapCenterCoor, iconCoor, hintContent, balloonContent}, {iconUrl, iconSize, iconOffset}) {
+      var placemark;
+      placemark = new ymaps.Placemark(iconCoor, {
+        hintContent: hintContent,
+        balloonContent: balloonContent
+      }, {
+        iconLayout: 'default#image',
+        iconImageHref: iconUrl,
+        iconImageSize: iconSize,
+        iconImageOffset: iconOffset
+      });
+      this.map.geoObjects.add(placemark);
+      return true;
+    }
+
+  };
+
+  yandexMapInit = function() {
+    var $view, config;
+    config = window.mapConfig;
+    $view = $('.js-map');
+    if (!((config != null) && $view.length)) {
+      return false;
+    }
+    return $view.each(function(i, el) {
+      return new YandexMap($(el), config);
+    });
+  };
+
+  if (typeof ymaps !== "undefined" && ymaps !== null) {
+    if (typeof ymaps.ready === "function") {
+      ymaps.ready(yandexMapInit);
+    }
+  }
 
 }).call(this);

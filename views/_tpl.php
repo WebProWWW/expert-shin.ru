@@ -13,19 +13,19 @@
   <link rel="stylesheet" href="/assets/bxslider/dist/jquery.bxslider.min.css">
   <link rel="stylesheet" href="/assets/fancybox/dist/jquery.fancybox.min.css">
   <!-- style -->
-  <link rel="stylesheet" href="/css/main.css?v=007">
+  <link rel="stylesheet" href="/css/main.css?v=009">
   <!-- favicon -->
-  <link rel="apple-touch-icon-precomposed" sizes="57x57" href="http://www.expert-shin.ru/apple-touch-icon-57x57.png">
-  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://www.expert-shin.ru/apple-touch-icon-114x114.png">
-  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://www.expert-shin.ru/apple-touch-icon-72x72.png">
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://www.expert-shin.ru/apple-touch-icon-144x144.png">
-  <link rel="apple-touch-icon-precomposed" sizes="120x120" href="http://www.expert-shin.ru/apple-touch-icon-120x120.png">
-  <link rel="apple-touch-icon-precomposed" sizes="152x152" href="http://www.expert-shin.ru/apple-touch-icon-152x152.png">
-  <link rel="icon" type="image/png" href="http://www.expert-shin.ru/favicon-32x32.png" sizes="32x32">
-  <link rel="icon" type="image/png" href="http://www.expert-shin.ru/favicon-16x16.png" sizes="16x16">
+  <link rel="apple-touch-icon-precomposed" sizes="57x57" href="<?= $this->baseUrl ?>/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?= $this->baseUrl ?>/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="<?= $this->baseUrl ?>/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="<?= $this->baseUrl ?>/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon-precomposed" sizes="120x120" href="<?= $this->baseUrl ?>/apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon-precomposed" sizes="152x152" href="<?= $this->baseUrl ?>/apple-touch-icon-152x152.png">
+  <link rel="icon" type="image/png" href="<?= $this->baseUrl ?>/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="<?= $this->baseUrl ?>/favicon-16x16.png" sizes="16x16">
   <meta name="application-name" content="Expert Shin">
   <meta name="msapplication-TileColor" content="#FFFFFF">
-  <meta name="msapplication-TileImage" content="http://www.expert-shin.ru/mstile-144x144.png">
+  <meta name="msapplication-TileImage" content="<?= $this->baseUrl ?>/mstile-144x144.png">
   <title>Експерт Шин - <?= $this->title ?></title>
 </head>
 <body>
@@ -295,81 +295,104 @@ d.addEventListener("DOMContentLoaded", f, false);
 
 </div><!--/.d-none-->
 
+
 <!-- jQuery -->
-<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-
-<script type="text/javascript">
-(function($) {
-  $(function() {
-    var mapOptions = {
-      /* ID блока див где будет отображаться карта */
-      blockId: 'yandex-map',
-
-      /* Координаты центра карты */
-      mapCenterCoor: [55.8991919850342,37.604063105740096],
-
-      /* Координаты иконки */
-      iconCoor: [55.8991919850342,37.604063105740096],
-
-      /* Приближение */
-      mapZoom: 16,
-      
-      /* Надпись при навидении на иконку */
-      hintContent: 'Expert Shin',
-
-      /* Адрес, появляется после клика на иконку */
-      balloonContent: 'Москва, ул. Лескова, 9г<br>Телефон<br><strong>+7 495 507-21-33</strong><br>Работаем ежедневно<br><strong>с 9:00 до 23:00</strong>',
-
-      /* Путь к картинке (иконка) */
-      iconUrl: 'img/map.svg?v=001',
-
-      /* размер иконки (картинки) [ширина, высота] */
-      iconSize: [32, 48],
-
-      /* отступы по осям X и Y чтоб нижний кончик картинки
-      совпадал на указанные координаты [X, Y] */
-      iconOffset: [-16, -48],
-
-      /* Элементы управления на карте [] значит никакого */
-      // mapControls: []
-    };
-    function yandexMapInit() {
-      var map = new ymaps.Map(mapOptions.blockId , {
-        center: mapOptions.mapCenterCoor,
-        zoom: mapOptions.mapZoom,
-        controls: mapOptions.mapControls
-      });
-      var placemark = new ymaps.Placemark(mapOptions.iconCoor, {
-        hintContent: mapOptions.hintContent,
-        balloonContent: mapOptions.balloonContent
-      }, {
-        iconLayout: 'default#image',
-        iconImageHref: mapOptions.iconUrl,
-        iconImageSize: mapOptions.iconSize,
-        iconImageOffset: mapOptions.iconOffset
-      });
-      map.geoObjects.add(placemark);
-      map.behaviors.disable(['drag', 'scrollZoom']);
-    }
-    ymaps.ready(function() {
-      if ($('#yandex-map').length) {
-        yandexMapInit()
-      }
-    });
-  });
-})(jQuery);
-</script>
-
-
 <!-- plugins -->
-<script src="assets/bxslider/dist/jquery.bxslider.min.js"></script>
-<script src="assets/Inputmask/dist/min/jquery.inputmask.bundle.min.js"></script>
-<script src="assets/fancybox/dist/jquery.fancybox.min.js"></script>
-<script src="assets/modernizr/modernizr-mq.js"></script>
+<script src="/assets/bxslider/dist/jquery.bxslider.min.js"></script>
+<script src="/assets/Inputmask/dist/min/jquery.inputmask.bundle.min.js"></script>
+<script src="/assets/fancybox/dist/jquery.fancybox.min.js"></script>
+<script src="/assets/modernizr/modernizr-mq.js"></script>
+
 <!-- script -->
-<script src="js/main.js?v=008"></script>
+<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU"></script>
+<script type="text/javascript">
+window.mapConfig = {
+  address: [
+    {
+      mapCenterCoor: [55.8991919850342,37.604063105740096],
+      iconCoor: [55.8991919850342,37.604063105740096],
+      hintContent: 'Expert Shin',
+      balloonContent: 'Москва, ул. Лескова, 9г<br>Телефон<br><strong>+7 495 507-21-33</strong><br>Работаем ежедневно<br><strong>с 9:00 до 23:00</strong>'
+    },
+    {
+      mapCenterCoor: [55.87651641443169,37.66191767294684],
+      iconCoor: [55.87651641443169,37.66191767294684],
+      hintContent: 'Expert Shin',
+      balloonContent: 'Москва, ул. Олонецкий проезд, 14<br>Телефон<br><strong>+7 903 611-83-33</strong><br>Работаем ежедневно<br><strong>с 9:00 до 23:00</strong>'
+    }
+  ],
+  placemark: {
+    iconUrl: '/img/map.svg?v=001',
+    iconSize: [32, 48],
+    iconOffset: [-16, -48]
+  }
+};
+// {
+//   address: [
+
+//   ],
+//   iconUrl: '/img/map.svg?v=001',
+//   iconSize: [32, 48],
+//   iconOffset: [-16, -48]
+// };
+// (function($) {
+//   $(function() {
+//     var mapOptions = {
+//       /* ID блока див где будет отображаться карта */
+//       blockId: 'yandex-map',
+//       /* Координаты центра карты */
+//       mapCenterCoor: [55.8991919850342,37.604063105740096],
+//       /* Координаты иконки */
+//       iconCoor: [55.8991919850342,37.604063105740096],
+//       /* Приближение */
+//       mapZoom: 16,
+//       /* Надпись при навидении на иконку */
+//       hintContent: 'Expert Shin',
+//       /* Адрес, появляется после клика на иконку */
+//       balloonContent: 'Москва, ул. Лескова, 9г<br>Телефон<br><strong>+7 495 507-21-33</strong><br>Работаем ежедневно<br><strong>с 9:00 до 23:00</strong>',
+//       /* Путь к картинке (иконка) */
+//       iconUrl: '/img/map.svg?v=001',
+//       /* размер иконки (картинки) [ширина, высота] */
+//       iconSize: [32, 48],
+//       /* отступы по осям X и Y чтоб нижний кончик картинки
+//       совпадал на указанные координаты [X, Y] */
+//       iconOffset: [-16, -48],
+//        Элементы управления на карте [] значит никакого 
+//       // mapControls: []
+//     };
+//     function yandexMapInit() {
+//       var map = new ymaps.Map(mapOptions.blockId , {
+//         center: mapOptions.mapCenterCoor,
+//         zoom: mapOptions.mapZoom,
+//         controls: mapOptions.mapControls
+//       });
+//       var placemark = new ymaps.Placemark(mapOptions.iconCoor, {
+//         hintContent: mapOptions.hintContent,
+//         balloonContent: mapOptions.balloonContent
+//       }, {
+//         iconLayout: 'default#image',
+//         iconImageHref: mapOptions.iconUrl,
+//         iconImageSize: mapOptions.iconSize,
+//         iconImageOffset: mapOptions.iconOffset
+//       });
+//       map.geoObjects.add(placemark);
+//       map.behaviors.disable(['drag', 'scrollZoom']);
+
+//       $('.js-map-addr').on('click', function(e) {
+//         var index = $(this).attr('data-index');
+//       });
+//     }
+//     ymaps.ready(function() {
+//       if ($('#yandex-map').length) {
+//         yandexMapInit()
+//       }
+//     });
+//   });
+// })(jQuery);
+</script>
+<script src="/js/main.js?v=009"></script>
 
 </body>
 </html>

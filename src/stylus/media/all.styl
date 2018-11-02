@@ -397,9 +397,23 @@ button.input-h
 
 
 
-.map-wrapper
-  overflow hidden
-  border-radius 10px
+.map
+  &-wrapper
+    overflow hidden
+    border-radius 10px
+    height 430px
+  &-select
+    mpd()
+    cursor pointer
+    user-select none
+    &.active
+      .phone-ln
+        color colorBlue
+      .text
+        color colorBlue
+    &:hover
+      .text
+        color colorBlue
 
 
 .corner-tr-blue
@@ -471,8 +485,8 @@ button.input-h
   color colorRed
 
 
-#yandex-map
-  height 430px
+// #yandex-map
+//   height 430px
 
-.map
-  height 430px
+// .map
+//   height 430px
