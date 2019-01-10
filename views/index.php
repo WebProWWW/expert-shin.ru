@@ -284,11 +284,11 @@ $this->title = 'Главная';
                 type="checkbox"
                 class="checkbox-input js-calc-input"
                 id="js-calc-input-11"
-                value="{'p':'750','label':'Ремонт шины жгутом'}">
+                value="{'p':'250','label':'Ремонт шины жгутом'}">
               <span class="checkbox-box"></span>
               <span class="checkbox-label w-100 d-flex justify-content-between align-items-end">
                 <span>Ремонт шины жгутом</span>
-                <span class="fwgt-600 spnwr ml-10">750<i class="i-20 em-8"></i></span>
+                <span class="fwgt-600 spnwr ml-10">250<i class="i-20 em-8"></i></span>
               </span>
             </label>
             <div class="divider"></div>
@@ -449,11 +449,11 @@ $this->title = 'Главная';
                 type="checkbox"
                 class="checkbox-input js-calc-input"
                 id="js-calc-input-23"
-                value="{'p':'750','label':'Снять/поставить'}">
+                value="{'p':'450','label':'Снять/поставить'}">
               <span class="checkbox-box"></span>
               <span class="checkbox-label w-100 d-flex justify-content-between align-items-end">
                 <span>Снять/поставить</span>
-                <span class="fwgt-600 spnwr ml-10">750<i class="i-20 em-8"></i></span>
+                <span class="fwgt-600 spnwr ml-10">450<i class="i-20 em-8"></i></span>
               </span>
             </label>
             <div class="divider"></div>
@@ -462,11 +462,11 @@ $this->title = 'Главная';
                 type="checkbox"
                 class="checkbox-input js-calc-input"
                 id="js-calc-input-24"
-                value="{'p':'1700','label':'Ремонт диска'}">
+                value="{'p':'1800','label':'Ремонт диска'}">
               <span class="checkbox-box"></span>
               <span class="checkbox-label w-100 d-flex justify-content-between align-items-end">
                 <span>Ремонт диска</span>
-                <span class="fwgt-600 spnwr ml-10">1700<i class="i-20 em-8"></i></span>
+                <span class="fwgt-600 spnwr ml-10">1800<i class="i-20 em-8"></i></span>
               </span>
             </label>
             <div class="divider"></div>
@@ -475,11 +475,11 @@ $this->title = 'Главная';
                 type="checkbox"
                 class="checkbox-input js-calc-input"
                 id="js-calc-input-25"
-                value="{'p':'2200','label':'Шиномонтаж'}">
+                value="{'p':'300','label':'Шиномонтаж'}">
               <span class="checkbox-box"></span>
               <span class="checkbox-label w-100 d-flex justify-content-between align-items-end">
                 <span>Шиномонтаж</span>
-                <span class="fwgt-600 spnwr ml-10">2200<i class="i-20 em-8"></i></span>
+                <span class="fwgt-600 spnwr ml-10">300<i class="i-20 em-8"></i></span>
               </span>
             </label>
             <div class="divider"></div>
@@ -488,11 +488,11 @@ $this->title = 'Главная';
                 type="checkbox"
                 class="checkbox-input js-calc-input"
                 id="js-calc-input-26"
-                value="{'p':'2700','label':'Балансировка'}">
+                value="{'p':'300','label':'Балансировка'}">
               <span class="checkbox-box"></span>
               <span class="checkbox-label w-100 d-flex justify-content-between align-items-end">
                 <span>Балансировка</span>
-                <span class="fwgt-600 spnwr ml-10">2700<i class="i-20 em-8"></i></span>
+                <span class="fwgt-600 spnwr ml-10">300<i class="i-20 em-8"></i></span>
               </span>
             </label>
             <!--=include ./tpl/-store.html-->
